@@ -2,8 +2,6 @@
 layout: post
 ---
 
-# AspNetCore程序部署至CentOS7中
-
 ## 运行环境
 * CentOS 7
 * nginx 1.18.0
@@ -25,19 +23,19 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 为什么要关闭：因为设置起来很麻烦，所以一般默认关闭。
 
 查看SELINUX的状态：  
-` getenforce `
+`getenforce`
 
 临时关闭：  
-` sudo setenforce 0 `
+`sudo setenforce 0`
 
 永久关闭：  
-` sudo vim /etc/selinux/config `        
+`sudo vim /etc/selinux/config`        
 将SELINUX参数设置为disabled  
 保存修改后重启系统  
-` sudo shutdown -r now `
+`sudo shutdown -r now`
 
 确认SELINUX已关闭：  
-` getenforce `
+`getenforce`
 
 
 ### **设置防火墙**
@@ -58,21 +56,21 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 `sudo firewall-cmd --reload`
 
 确认端口已开放：  
-` sudo firewall-cmd --list-port --zone=public `
+`sudo firewall-cmd --list-port --zone=public`
 
 ### **安装nginx**
 安装过程参照[官方文档](https://nginx.org/en/linux_packages.html#RHEL-CentOS)
 
 开启服务：  
-` sudo systemctl enable nginx `  
-` sudo systemctl start nginx `
+`sudo systemctl enable nginx`  
+`sudo systemctl start nginx`
 
 开放80端口：  
 `sudo firewall-cmd --add-port=80/tcp --zone=public --permanent # --permanent表示永久开放`  
 `sudo firewall-cmd --reload`
 
 查看本机IP地址（有多个IP，哪个是？）：  
-` ip addr `
+`ip addr`
 
 在浏览器中输入上面显示的IP地址，如果出现 **Welcome to nginx!** 表示nginx已启动。
 
@@ -84,37 +82,37 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 ### **安装mariadb**
 [官方文档](https://mariadb.com/resources/blog/installing-mariadb-10-on-centos-7-rhel-7/)  
 使用yum安装：  
-` sudo yum install MariaDB-server `  
+`sudo yum install MariaDB-server`  
 启用服务：  
-` sudo systemctl enable mariadb `  
-` sudo systemctl start mariadb `
+`sudo systemctl enable mariadb`  
+`sudo systemctl start mariadb`
 
 配置mariadb：  
-` sudo mysql_secure_installation `  
+`sudo mysql_secure_installation`  
 需要设置root用户密码，其余选项根据实际需要选择（一般选择y即可）
 
 登录数据库：  
-` mysql -u root -p `  
+`mysql -u root -p`  
 然后输入密码进入mysql命令行环境
 
 创建一般用户：  
-` create user '[user]'; ` 
+`create user '[user]';` 
 
 设置用户密码：  
-` set password for '[user]' = PASSWORD('[password]'); ` 
+`set password for '[user]' = PASSWORD('[password]');` 
 
 刷新权限：  
-` FLUSH PRIVILEGES; `
+`FLUSH PRIVILEGES;`
 
 查看已创建的用户：  
-` use mysql; `  
-` select host, user from user; `  
+`use mysql;`  
+`select host, user from user;`  
 
 新建database：  
-` create database [name]; `
+`create database [name];`
 
 开放database权限给某用户：  
-` grant all privileges on [database].* to '[user]'; `
+`grant all privileges on [database].* to '[user]';`
 
 ### **安装dotnet core**
 具体过程参照[官方文档](https://docs.microsoft.com/en-us/dotnet/core/install/linux-centos#centos-7-)
