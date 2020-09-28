@@ -127,7 +127,7 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 1. 修改appsettings.json中的ConnectionStrings：
 ```json
 "ConnectionStrings": {
-    "Context": "Server=localhost;Port=3306;Database=myDB;User=[user name];Password=[password];"
+    "Context": "Server=localhost;Port=3306;Database=[database];User=[user name];Password=[password];"
   }
 ```  
 2. 在VS2019中将程序发布到某个文件夹中；
