@@ -102,10 +102,10 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 `set password for '[user]' = PASSWORD('[password]');` 
 
 刷新权限：  
-`FLUSH PRIVILEGES;`
+`flush privileges;`
 
 查看已创建的用户：  
-`use mysql;`  
+`use mysql; # 指定database`  
 `select host, user from user;`  
 
 新建database：  
