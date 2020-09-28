@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # AspNetCore程序部署至CentOS7中
 
 ## 运行环境
