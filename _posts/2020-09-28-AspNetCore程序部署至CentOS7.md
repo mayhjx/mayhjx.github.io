@@ -74,6 +74,12 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 
 在浏览器中输入上面显示的IP地址，如果出现 **Welcome to nginx!** 表示nginx已启动。
 
+nginx配置文件位置：
+/etc/nginx/nginx.conf 
+
+Server配置文件位置：  
+/etc/nginx/conf.d 
+
 日志位置：  
 /var/log/nginx/error.log  
 /var/log/nginx/access.log
@@ -133,7 +139,8 @@ character-set-server = utf8mb4
 1. 配置文件中的监听端口要开放；
 2. 服务文件中的WorkingDirectory，ExecStart，User要根据实际情况进行设置；
 3. 服务文件要放在/usr/lib/systemd/system/中才能启用；
-4. nginx配置文件的监听端口不能和程序的监听端口一样。
+4. nginx配置文件的监听端口不能和程序的监听端口一样；
+5. 开放nginx配置文件的监听端口。
 
 ### **发布程序**
 1. 修改appsettings.json中的ConnectionStrings：
