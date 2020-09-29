@@ -84,6 +84,7 @@ Server配置文件位置：
 /var/log/nginx/error.log  
 /var/log/nginx/access.log
 
+[其他资源](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
 
 ### **安装mariadb**
 [官方文档](https://mariadb.com/resources/blog/installing-mariadb-10-on-centos-7-rhel-7/)  
