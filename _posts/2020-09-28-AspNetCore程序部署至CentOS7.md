@@ -108,7 +108,7 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 `use mysql; # 指定database`  
 `select host, user from user;`  
 
-设置数据库字符编码：  
+设置数据库字符编码[官方文档](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)：  
 打开配置文件：/etc/my.cnf  
 在[mysqld]内容块中添加：
 ```
