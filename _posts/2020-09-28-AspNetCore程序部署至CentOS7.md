@@ -108,6 +108,18 @@ SELINUX是Linux系统的安全体系结构，它允许管理员对访问系统�
 `use mysql; # 指定database`  
 `select host, user from user;`  
 
+设置数据库字符编码：  
+打开配置文件：/etc/my.cnf  
+在[mysqld]内容块中添加：
+```
+collation-server = utf8mb4_unicode_ci
+init-connect='SET NAMES utf8mb4'
+character-set-server = utf8mb4
+```
+
+重启mariadb服务:  
+`sudo systemctl restart mariadb`
+
 新建database：  
 `create database [name];`
 
